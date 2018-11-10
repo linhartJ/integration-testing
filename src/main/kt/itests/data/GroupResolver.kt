@@ -1,4 +1,4 @@
-package itests
+package itests.data
 
 class GroupResolver(data: List<Groupable>) {
 

@@ -1,5 +1,7 @@
-package itests
+package itests.dao
 
+import itests.data.Commit
+import itests.data.CommitDao
 import kotlinx.coroutines.delay
 import org.springframework.stereotype.Component
 

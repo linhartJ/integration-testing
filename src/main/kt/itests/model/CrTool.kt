@@ -1,5 +1,8 @@
-package itests
+package itests.model
 
+import itests.data.CommitDao
+import itests.data.CommitStatistics
+import itests.data.GroupResolver
 import org.springframework.stereotype.Component
 
 @Component

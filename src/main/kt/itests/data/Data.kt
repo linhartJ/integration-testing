@@ -1,4 +1,4 @@
-package itests
+package itests.data
 
 data class Commit(val author: String, val commitMessage: String): Groupable {
     override val groupId get() = author

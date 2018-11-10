@@ -1,12 +1,13 @@
 package itests
 
+import itests.model.CrTool
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 import org.springframework.context.annotation.AnnotationConfigApplicationContext
 
 fun main() = runBlocking {
-    val ctx = AnnotationConfigApplicationContext(IntegrationTestingConfiguration::class.java)
+    val ctx = AnnotationConfigApplicationContext(ApplicationConfiguration::class.java)
     val calculator = ctx.getBean("crTool") as CrTool
     val resolveCommitsJob = launch {
         println(calculator.resolveCommitStats())

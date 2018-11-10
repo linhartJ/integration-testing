@@ -1,5 +1,7 @@
-package itests
+package itests.model
 
+import itests.data.Commit
+import itests.data.ReviewedCommit
 import org.springframework.stereotype.Component
 
 @Component
