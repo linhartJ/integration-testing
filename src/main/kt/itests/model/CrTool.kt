@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component
 class CrTool(private val commitsDao: CommitDao,
              private val commitParser: CommitParser) {
 
-    suspend fun resolveCommitStats(): CommitStatistics {
+    fun resolveCommitStats(): CommitStatistics {
         val allCommits = commitsDao.get()
         val reviewedCommits = allCommits.mapNotNull { commitParser.parseReviewedCommit(it) }
 

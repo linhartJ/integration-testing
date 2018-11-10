@@ -1,10 +1,10 @@
 package itests.data
 
-data class Commit(val author: String, val commitMessage: String): Groupable {
+data class Commit(val author: String, val commitMessage: String) : Groupable {
     override val groupId get() = author
 }
 
-data class ReviewedCommit(val commitAuthor: String, val reviewAuthor: String): Groupable {
+data class ReviewedCommit(val commitAuthor: String, val reviewAuthor: String) : Groupable {
     override val groupId get() = reviewAuthor
 }
 
@@ -20,5 +20,5 @@ interface Groupable {
 }
 
 interface CommitDao {
-    suspend fun get(): List<Commit>
+    fun get(): List<Commit>
 }

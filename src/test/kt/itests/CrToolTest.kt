@@ -3,7 +3,6 @@ package itests
 import itests.dao.TestCommitProvider
 import itests.data.Commit
 import itests.model.CrTool
-import kotlinx.coroutines.runBlocking
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 
@@ -18,7 +17,7 @@ class CrToolTest : IntegrationTest(TestApplicationConfiguration::class) {
         commitDao.commits = emptyList()
 
         // when
-        val result = runBlocking { crTool.resolveCommitStats() }
+        val result = crTool.resolveCommitStats()
 
         // then
         assertEquals(0, result.commitsWithReview)
@@ -40,7 +39,7 @@ class CrToolTest : IntegrationTest(TestApplicationConfiguration::class) {
         )
 
         // when
-        val result = runBlocking { crTool.resolveCommitStats() }
+        val result = crTool.resolveCommitStats()
 
         // then
         assertEquals(1, result.commitsWithoutReview)
@@ -59,7 +58,7 @@ class CrToolTest : IntegrationTest(TestApplicationConfiguration::class) {
         )
 
         // when
-        val result = runBlocking { crTool.resolveCommitStats() }
+        val result = crTool.resolveCommitStats()
 
         // then
         assertEquals(5, result.commitsWithReview)
@@ -78,7 +77,7 @@ class CrToolTest : IntegrationTest(TestApplicationConfiguration::class) {
         )
 
         // when
-        val result = runBlocking { crTool.resolveCommitStats().commitsByAuthor }
+        val result = crTool.resolveCommitStats().commitsByAuthor
 
         // then
         assertEquals(4, result.size)
@@ -101,7 +100,7 @@ class CrToolTest : IntegrationTest(TestApplicationConfiguration::class) {
         )
 
         // when
-        val result = runBlocking { crTool.resolveCommitStats().reviewsByAuthor }
+        val result = crTool.resolveCommitStats().reviewsByAuthor
 
         // then
         assertEquals(3, result.size)

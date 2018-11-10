@@ -7,7 +7,7 @@ class TestCommitProvider : CommitDao {
 
     lateinit var commits: List<Commit>
 
-    override suspend fun get(): List<Commit> {
+    override fun get(): List<Commit> {
         return commits
     }
 }

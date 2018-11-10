@@ -16,7 +16,6 @@ buildscript {
         classpath("org.jetbrains.kotlin:kotlin-noarg:$kotlinVersion")
         classpath("org.springframework:spring-context:$springVersion")
         classpath("org.springframework:spring-core:$springVersion")
-        classpath("org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesVersion")
     }
 }
 
@@ -46,7 +45,6 @@ dependencies {
     compile("org.springframework:spring-context:$springVersion")
     compile("org.springframework:spring-core:$springVersion")
     compile("org.jetbrains.kotlin:kotlin-reflect")
-    compile("org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesVersion")
 
     testCompile("com.nhaarman:mockito-kotlin:$mockitoKotlinVersion")
     testCompile("org.mockito:mockito-core:$mockitoVersion")
