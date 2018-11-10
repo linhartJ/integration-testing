@@ -1,20 +1,18 @@
 package itests
 
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.runBlocking
 import org.springframework.context.annotation.AnnotationConfigApplicationContext
+import kotlin.concurrent.thread
 
-fun main() = runBlocking {
+fun main() {
     val ctx = AnnotationConfigApplicationContext(IntegrationTestingConfiguration::class.java)
     val calculator = ctx.getBean("crTool") as CrTool
-    val resolveCommitsJob = launch {
+    val resolveCommitsThread = thread {
         println(calculator.resolveCommitStats())
     }
-    val printTimesMessageJob = launch {
-        while (resolveCommitsJob.isActive) {
+    val printTimesMessageJob = thread {
+        while (resolveCommitsThread.isAlive) {
             println("I'm fetching commits... ")
-            delay(1000)
+            Thread.sleep(1000)
         }
     }
     printTimesMessageJob.join()

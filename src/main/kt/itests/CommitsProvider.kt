@@ -1,6 +1,5 @@
 package itests
 
-import kotlinx.coroutines.delay
 import org.springframework.stereotype.Component
 
 @Component
@@ -9,8 +8,8 @@ class CommitsProvider : CommitDao {
     private val scalerDevs = listOf("l.najman", "m.horcicko", "j.fous", "o.sukala", "p.holubec", "j.linhart", "j.novak", "d.bydzovsky", "j.skorvanek")
     private val commitMessages = listOf("fixed stuff", "broke stuff", "implemented stuff", "tried some stuff", "refactored some stuff")
 
-    override suspend fun get(): List<Commit> {
-        delay(10_000) // it takes a long time to get commits from git
+    override fun get(): List<Commit> {
+        Thread.sleep(10_000) // it takes a long time to get commits from git
         return if (gitServiceIsAvailable()) {
             retrieveCommits()
         } else {

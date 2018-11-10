@@ -20,5 +20,5 @@ interface Groupable {
 }
 
 interface CommitDao {
-    suspend fun get(): List<Commit>
+    fun get(): List<Commit>
 }
