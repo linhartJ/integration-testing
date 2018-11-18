@@ -3,20 +3,35 @@ package report
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Assertions.assertTrue
 import org.junit.jupiter.api.Test
+import org.junit.jupiter.api.extension.ExtendWith
+import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.test.context.ContextConfiguration
+import org.springframework.test.context.junit.jupiter.SpringExtension
 import report.data.GoodReviewBalanceType
 import report.data.ReportType
 import report.factory.TestReportRuleFactory
 import report.model.CrReporter
 import report.model.PraiseDevThatHasEnoughReviewsRule
-import tool.IntegrationTest
+import tool.ModelConfiguration
+import tool.TestDaoConfiguration
 import tool.dao.TestCommitProvider
 import tool.data.Commit
 
-class CrReporterTest : IntegrationTest(TestReportConfiguration::class) {
+@ExtendWith(SpringExtension::class)
+@ContextConfiguration(classes = [
+    TestDaoConfiguration::class,
+    ModelConfiguration::class,
+    ReportModelConfiguration::class,
+    TestReportFactoryConfiguration::class
+])
+class CrReporterTest {
 
-    val reporter = bean<CrReporter>("crReporter")
-    val commitDao = bean<TestCommitProvider>("testCommitProvider")
-    val ruleFactory = bean<TestReportRuleFactory>("testReportRuleFactory")
+    @Autowired
+    private lateinit var reporter: CrReporter
+    @Autowired
+    private lateinit var commitDao: TestCommitProvider
+    @Autowired
+    private lateinit var ruleFactory: TestReportRuleFactory
 
     @Test
     fun `composeReports PRAISE_DEV_THAT_HAS_ENOUGH_REVIEWS & AT_LEAST_SOME_REVIEWED works`() {
