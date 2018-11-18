@@ -4,7 +4,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import kotlin.concurrent.thread
 
 fun main() {
-    val ctx = AnnotationConfigApplicationContext(IntegrationTestingConfiguration::class.java)
+    val ctx = AnnotationConfigApplicationContext(ApplicationConfiguration::class.java)
     val calculator = ctx.getBean("crTool") as CrTool
     val resolveCommitsThread = thread {
         println(calculator.resolveCommitStats())

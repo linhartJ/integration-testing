@@ -46,6 +46,7 @@ dependencies {
     compile("org.springframework:spring-core:$springVersion")
     compile("org.jetbrains.kotlin:kotlin-reflect")
 
+    testCompile("org.springframework:spring-test:$springVersion")
     testCompile("com.nhaarman:mockito-kotlin:$mockitoKotlinVersion")
     testCompile("org.mockito:mockito-core:$mockitoVersion")
     testCompile("org.junit.jupiter:junit-jupiter-params:$jUnitVersion")

@@ -2,12 +2,17 @@ package itests
 
 import org.junit.jupiter.api.Assertions.assertTrue
 import org.junit.jupiter.api.Test
-import org.springframework.context.annotation.AnnotationConfigApplicationContext
+import org.junit.jupiter.api.extension.ExtendWith
+import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.test.context.ContextConfiguration
+import org.springframework.test.context.junit.jupiter.SpringExtension
 
+@ExtendWith(SpringExtension::class)
+@ContextConfiguration(classes = [ApplicationConfiguration::class])
 class CrToolTest {
 
-    val crTool = AnnotationConfigApplicationContext(IntegrationTestingConfiguration::class.java)
-            .getBean("crTool") as CrTool
+    @Autowired
+    private lateinit var crTool: CrTool
 
     @Test
     fun `resolveCommitStats works`() {
