@@ -5,11 +5,20 @@ import itests.data.Commit
 import itests.model.CrTool
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
+import org.junit.jupiter.api.extension.ExtendWith
+import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.test.context.ContextConfiguration
+import org.springframework.test.context.junit.jupiter.SpringExtension
 
-class CrToolTest : IntegrationTest(TestApplicationConfiguration::class) {
+@ExtendWith(SpringExtension::class)
+@ContextConfiguration(classes = [ModelConfiguration::class, TestDaoConfiguration::class])
+class CrToolTest {
 
-    private val crTool = bean<CrTool>("crTool")
-    private val commitDao = bean<TestCommitProvider>("testCommitProvider")
+    @Autowired
+    private lateinit var crTool: CrTool
+
+    @Autowired
+    private lateinit var commitDao: TestCommitProvider
 
     @Test
     fun `resolveCommitStats returns empty statistics given no commits are available`() {
