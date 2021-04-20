@@ -17,7 +17,3 @@ class DaoConfiguration
 @Configuration
 @ComponentScan(basePackages = arrayOf("itests.model"))
 class ModelConfiguration
-
-
-
-

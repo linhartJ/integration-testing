@@ -39,12 +39,12 @@ class CrToolTest {
     fun `resolveCommitStats correctly resolves commitsWithoutReview given all commits have not been reviewed`() {
         // given
         commitDao.commits = listOf(
-                Commit("superman", "ISC-1 stuff CR: batman"),
-                Commit("batman", "ISC-2 stuff CR: flash"),
-                Commit("batman", "ISC-2 stuff CR: batman"),
-                Commit("flash", "ISC-3 stuff"),
-                Commit("superman", "ISC-1 stuff CR: wonderwoman"),
-                Commit("wonderwoman", "ISC-4 stuff CR: flash")
+            Commit("superman", "ISC-1 stuff CR: batman"),
+            Commit("batman", "ISC-2 stuff CR: flash"),
+            Commit("batman", "ISC-2 stuff CR: batman"),
+            Commit("flash", "ISC-3 stuff"),
+            Commit("superman", "ISC-1 stuff CR: wonderwoman"),
+            Commit("wonderwoman", "ISC-4 stuff CR: flash")
         )
 
         // when
@@ -58,12 +58,12 @@ class CrToolTest {
     fun `resolveCommitsStats correctly resolves commitsWithReview given all comits have not been reviewed`() {
         // given
         commitDao.commits = listOf(
-                Commit("superman", "ISC-1 stuff CR: batman"),
-                Commit("batman", "ISC-2 stuff CR: flash"),
-                Commit("batman", "ISC-2 stuff CR: batman"),
-                Commit("flash", "ISC-3 stuff"),
-                Commit("superman", "ISC-1 stuff CR: wonderwoman"),
-                Commit("wonderwoman", "ISC-4 stuff CR: flash")
+            Commit("superman", "ISC-1 stuff CR: batman"),
+            Commit("batman", "ISC-2 stuff CR: flash"),
+            Commit("batman", "ISC-2 stuff CR: batman"),
+            Commit("flash", "ISC-3 stuff"),
+            Commit("superman", "ISC-1 stuff CR: wonderwoman"),
+            Commit("wonderwoman", "ISC-4 stuff CR: flash")
         )
 
         // when
@@ -77,12 +77,12 @@ class CrToolTest {
     fun `resolveCommitsStats resolves commitsByAuthor correctly`() {
         // given
         commitDao.commits = listOf(
-                Commit("superman", "ISC-1 stuff CR: batman"),
-                Commit("batman", "ISC-2 stuff CR: flash"),
-                Commit("batman", "ISC-2 stuff CR: batman"),
-                Commit("flash", "ISC-3 stuff"),
-                Commit("superman", "ISC-1 stuff CR: wonderwoman"),
-                Commit("wonderwoman", "ISC-4 stuff CR: flash")
+            Commit("superman", "ISC-1 stuff CR: batman"),
+            Commit("batman", "ISC-2 stuff CR: flash"),
+            Commit("batman", "ISC-2 stuff CR: batman"),
+            Commit("flash", "ISC-3 stuff"),
+            Commit("superman", "ISC-1 stuff CR: wonderwoman"),
+            Commit("wonderwoman", "ISC-4 stuff CR: flash")
         )
 
         // when
@@ -100,12 +100,12 @@ class CrToolTest {
     fun `resolveCommitsStats resolves reviewsByAuthor correctly`() {
         // given
         commitDao.commits = listOf(
-                Commit("superman", "ISC-1 stuff CR: batman"),
-                Commit("batman", "ISC-2 stuff CR: flash"),
-                Commit("batman", "ISC-2 stuff CR: batman"),
-                Commit("flash", "ISC-3 stuff"),
-                Commit("superman", "ISC-1 stuff CR: wonderwoman"),
-                Commit("wonderwoman", "ISC-4 stuff CR: flash")
+            Commit("superman", "ISC-1 stuff CR: batman"),
+            Commit("batman", "ISC-2 stuff CR: flash"),
+            Commit("batman", "ISC-2 stuff CR: batman"),
+            Commit("flash", "ISC-3 stuff"),
+            Commit("superman", "ISC-1 stuff CR: wonderwoman"),
+            Commit("wonderwoman", "ISC-4 stuff CR: flash")
         )
 
         // when
@@ -117,5 +117,4 @@ class CrToolTest {
         assertEquals(2, result["flash"])
         assertEquals(1, result["wonderwoman"])
     }
-
 }

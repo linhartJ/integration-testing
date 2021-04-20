@@ -9,10 +9,10 @@ data class ReviewedCommit(val commitAuthor: String, val reviewAuthor: String) : 
 }
 
 data class CommitStatistics(
-        val commitsWithoutReview: Int,
-        val commitsWithReview: Int,
-        val commitsByAuthor: Map<String, Int>,
-        val reviewsByAuthor: Map<String, Int>
+    val commitsWithoutReview: Int,
+    val commitsWithReview: Int,
+    val commitsByAuthor: Map<String, Int>,
+    val reviewsByAuthor: Map<String, Int>
 )
 
 interface Groupable {

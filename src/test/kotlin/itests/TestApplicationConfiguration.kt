@@ -13,5 +13,4 @@ class TestDaoConfiguration {
     fun testCommitProvider(): TestCommitProvider {
         return TestCommitProvider()
     }
-
 }

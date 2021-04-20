@@ -7,8 +7,19 @@ import org.springframework.stereotype.Component
 @Component
 class CommitsProvider : CommitDao {
 
-    private val scalerDevs = listOf("l.najman", "m.horcicko", "j.fous", "o.sukala", "p.holubec", "j.linhart", "j.novak", "d.bydzovsky", "j.skorvanek")
-    private val commitMessages = listOf("fixed stuff", "broke stuff", "implemented stuff", "tried some stuff", "refactored some stuff")
+    private val scalerDevs = listOf(
+        "l.najman",
+        "m.horcicko",
+        "j.fous",
+        "o.sukala",
+        "p.holubec",
+        "j.linhart",
+        "j.novak",
+        "d.bydzovsky",
+        "j.skorvanek"
+    )
+    private val commitMessages =
+        listOf("fixed stuff", "broke stuff", "implemented stuff", "tried some stuff", "refactored some stuff")
 
     override fun get(): List<Commit> {
         Thread.sleep(10_000) // it takes a long time to get commits from git
@@ -17,7 +28,6 @@ class CommitsProvider : CommitDao {
         } else {
             emptyList()
         }
-
     }
 
     private fun retrieveCommits(): List<Commit> {
@@ -28,7 +38,6 @@ class CommitsProvider : CommitDao {
         return Math.random() > 0.2 // once in 5 tries (roughly) this call returns false, hups
     }
 
-
     private val randomDev get() = scalerDevs.random()
     private val randomNumber get() = (Math.random() * 1000).toInt()
     private val randomMessage get() = commitMessages.random()
@@ -37,5 +46,4 @@ class CommitsProvider : CommitDao {
     private fun aCommit(): Commit {
         return Commit(randomDev, "ISC-$randomNumber $randomMessage ${if (hadCR) "CR: $randomDev" else ""}")
     }
-
 }
