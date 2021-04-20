@@ -13,14 +13,13 @@ import report.factory.TestReportRuleFactory
 import report.model.CrReporter
 import report.model.PraiseDevThatHasEnoughReviewsRule
 import tool.ModelConfiguration
-import tool.TestDaoConfiguration
 import tool.dao.TestCommitProvider
 import tool.data.Commit
 
 @ExtendWith(SpringExtension::class)
 @ContextConfiguration(
     classes = [
-        TestDaoConfiguration::class,
+        TestCommitProvider::class,
         ModelConfiguration::class,
         ReportModelConfiguration::class,
         TestReportFactoryConfiguration::class

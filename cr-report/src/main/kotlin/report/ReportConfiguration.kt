@@ -14,13 +14,16 @@ import report.factory.ConfigurableStrategyFactory
 import tool.ToolConfiguration
 
 @Configuration
-@Import(ToolConfiguration::class, ReportModelConfiguration::class, ReportFactoryConfiguration::class)
+@Import(
+    ToolConfiguration::class,
+    ReportModelConfiguration::class,
+    ReportFactoryConfiguration::class
+)
 class ReportConfiguration
 
-@ComponentScan(basePackages = arrayOf("report.model"))
+@ComponentScan("report.model")
 class ReportModelConfiguration
 
-@Configuration
 class ReportFactoryConfiguration {
 
     @Bean
