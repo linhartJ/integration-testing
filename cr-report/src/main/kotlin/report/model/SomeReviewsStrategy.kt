@@ -11,8 +11,8 @@ class SomeReviewsStrategy : GoodReviewerStrategy {
 
     override fun isGoodReviewer(reviewAuthor: String, stats: CommitStatistics): Boolean {
         return stats.reviewsByAuthor
-                .filter { (author, reviewsCount) -> author == reviewAuthor && reviewsCount > 0 }
-                .isNotEmpty()
+            .filter { (author, reviewsCount) -> author == reviewAuthor && reviewsCount > 0 }
+            .isNotEmpty()
     }
 
     override fun getGoodReviewerMessage(): String {

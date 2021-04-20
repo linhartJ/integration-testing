@@ -13,8 +13,8 @@ class ScoldDevThatDoesNotHaveEnoughReviewsRule(private val strategy: GoodReviewB
 
     override fun apply(stats: CommitStatistics): List<Report> {
         return stats.commitsByAuthor
-                .filter { (author, _) -> !strategy.hasGoodReviewBalance(author, stats) }
-                .map { (author, _) -> newReport(author) }
+            .filter { (author, _) -> !strategy.hasGoodReviewBalance(author, stats) }
+            .map { (author, _) -> newReport(author) }
     }
 
     private fun newReport(author: String): Report {

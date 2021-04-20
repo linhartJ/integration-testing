@@ -26,20 +26,19 @@ class ReportFactoryConfiguration {
     @Bean
     fun reportRuleFactory(strategyFactory: ConfigurableStrategyFactory): ConfigurableReportRuleFactory {
         return ConfigurableReportRuleFactory(
-                listOf(
-                        ReportType.PRAISE_DEV_THAT_HAS_ENOUGH_REVIEWS
-                ),
-                strategyFactory.goodReviewBalanceStrategy(),
-                strategyFactory.goodReviewerStrategy()
+            listOf(
+                ReportType.PRAISE_DEV_THAT_HAS_ENOUGH_REVIEWS
+            ),
+            strategyFactory.goodReviewBalanceStrategy(),
+            strategyFactory.goodReviewerStrategy()
         )
     }
 
     @Bean
     fun strategyFactory(): ConfigurableStrategyFactory {
         return ConfigurableStrategyFactory(
-                GoodReviewBalanceType.ABOVE_80_PERCENT,
-                GoodReviewerType.MOST_REVIEWS
+            GoodReviewBalanceType.ABOVE_80_PERCENT,
+            GoodReviewerType.MOST_REVIEWS
         )
     }
-
 }

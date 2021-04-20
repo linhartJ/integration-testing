@@ -12,9 +12,8 @@ class MostReviewsStrategy : GoodReviewerStrategy {
     override fun isGoodReviewer(reviewAuthor: String, stats: CommitStatistics): Boolean {
         val maxReviewCount = stats.reviewsByAuthor.maxBy { (_, reviewsCount) -> reviewsCount }?.value ?: 1
         return stats.reviewsByAuthor
-                .filter { (author, reviewsCount) -> author == reviewAuthor && reviewsCount == maxReviewCount }
-                .isNotEmpty()
-
+            .filter { (author, reviewsCount) -> author == reviewAuthor && reviewsCount == maxReviewCount }
+            .isNotEmpty()
     }
 
     override fun getGoodReviewerMessage(): String {

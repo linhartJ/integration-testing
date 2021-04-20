@@ -6,8 +6,10 @@ import report.data.ReportRuleFactory
 import tool.model.CrTool
 
 @Component
-class CrReporter(private val tool: CrTool,
-                 reportRuleFactory: ReportRuleFactory) {
+class CrReporter(
+    private val tool: CrTool,
+    reportRuleFactory: ReportRuleFactory
+) {
 
     private val reportRule = reportRuleFactory.getAllReportsRule()
 
@@ -15,5 +17,4 @@ class CrReporter(private val tool: CrTool,
         val stats = tool.resolveCommitStats()
         return reportRule.apply(stats)
     }
-
 }

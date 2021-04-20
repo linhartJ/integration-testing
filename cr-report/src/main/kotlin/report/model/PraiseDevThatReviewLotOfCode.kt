@@ -9,8 +9,8 @@ class PraiseDevThatReviewLotOfCode(private val strategy: GoodReviewerStrategy) :
 
     override fun apply(stats: CommitStatistics): List<Report> {
         return stats.reviewsByAuthor
-                .filter { (author, _) -> strategy.isGoodReviewer(author, stats) }
-                .map { (author, _) -> newReport(author) }
+            .filter { (author, _) -> strategy.isGoodReviewer(author, stats) }
+            .map { (author, _) -> newReport(author) }
     }
 
     private fun newReport(author: String): Report {

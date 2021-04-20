@@ -1,4 +1,3 @@
 rootProject.name = "integration-testing"
 
-include 'cr-tool'
-include 'cr-report'
+include(":cr-tool", ":cr-report")
