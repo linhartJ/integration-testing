@@ -2,6 +2,7 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
     kotlin("jvm") version "1.4.31"
+    kotlin("plugin.spring") version "1.4.31"
 }
 
 group = "org.jlinhart"
@@ -9,7 +10,7 @@ group = "org.jlinhart"
 val jUnitVersion = "5.7.1"
 val kotlinVersion = "1.4.31"
 val mockitoVersion = "3.9.0"
-val mockitoKotlinVersion = "2.2.0"
+val mockitoKotlinVersion = "1.6.0"
 val kotlinTestVersion = "1.5.0-RC"
 val springVersion = "5.3.6"
 
@@ -19,6 +20,7 @@ dependencies {
     implementation("org.springframework:spring-core:$springVersion")
     implementation("org.jetbrains.kotlin:kotlin-reflect:$kotlinVersion")
 
+    testImplementation("org.springframework:spring-test:$springVersion")
     testImplementation("com.nhaarman:mockito-kotlin:$mockitoKotlinVersion")
     testImplementation("org.mockito:mockito-core:$mockitoVersion")
     testImplementation("org.junit.jupiter:junit-jupiter-params:$jUnitVersion")
