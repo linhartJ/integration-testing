@@ -19,5 +19,4 @@ class CrToolTest {
         val result = crTool.resolveCommitStats()
         assertTrue(result.commitsWithoutReview > 0)
     }
-
 }

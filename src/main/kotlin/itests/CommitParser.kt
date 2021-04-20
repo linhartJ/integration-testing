@@ -11,11 +11,10 @@ class CommitParser {
     }
 
     private fun parseReviewAuthor(commitMessage: String): String? {
-        return if(commitMessage.contains("CR: ")) {
+        return if (commitMessage.contains("CR: ")) {
             commitMessage.substringAfter("CR: ")
         } else {
             null
         }
     }
-
 }
