@@ -7,13 +7,14 @@ import org.springframework.context.annotation.Configuration
 import org.springframework.context.annotation.Import
 
 @Configuration
-@Import(DaoConfiguration::class, ModelConfiguration::class)
+@Import(
+    DaoConfiguration::class,
+    ModelConfiguration::class
+)
 class ApplicationConfiguration
 
-@Configuration
-@ComponentScan(basePackages = arrayOf("itests.dao"))
+@ComponentScan("itests.dao")
 class DaoConfiguration
 
-@Configuration
-@ComponentScan(basePackages = arrayOf("itests.model"))
+@ComponentScan("itests.model")
 class ModelConfiguration

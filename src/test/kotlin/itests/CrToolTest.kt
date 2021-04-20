@@ -11,7 +11,7 @@ import org.springframework.test.context.ContextConfiguration
 import org.springframework.test.context.junit.jupiter.SpringExtension
 
 @ExtendWith(SpringExtension::class)
-@ContextConfiguration(classes = [ModelConfiguration::class, TestDaoConfiguration::class])
+@ContextConfiguration(classes = [ModelConfiguration::class, TestCommitProvider::class])
 class CrToolTest {
 
     @Autowired
@@ -55,7 +55,7 @@ class CrToolTest {
     }
 
     @Test
-    fun `resolveCommitsStats correctly resolves commitsWithReview given all comits have not been reviewed`() {
+    fun `resolveCommitsStats correctly resolves commitsWithReview given all commits have not been reviewed`() {
         // given
         commitDao.commits = listOf(
             Commit("superman", "ISC-1 stuff CR: batman"),
