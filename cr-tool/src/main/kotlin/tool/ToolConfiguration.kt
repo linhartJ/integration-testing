@@ -7,15 +7,16 @@ import org.springframework.context.annotation.Configuration
 import org.springframework.context.annotation.Import
 
 @Configuration
-@Import(DaoConfiguration::class, ModelConfiguration::class)
+@Import(
+    DaoConfiguration::class,
+    ModelConfiguration::class
+)
 class ToolConfiguration
 
-@Configuration
-@ComponentScan(basePackages = arrayOf("tool.dao"))
+@ComponentScan("tool.dao")
 class DaoConfiguration
 
-@Configuration
-@ComponentScan(basePackages = arrayOf("tool.model"))
+@ComponentScan("tool.model")
 class ModelConfiguration
 
 
