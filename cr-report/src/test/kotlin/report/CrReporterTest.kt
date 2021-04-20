@@ -26,7 +26,7 @@ import tool.data.Commit
         TestCommitProvider::class,
         ModelConfiguration::class,
         ReportModelConfiguration::class,
-        TestReportFactoryConfiguration::class
+        TestReportRuleFactory::class
     ]
 )
 class CrReporterTest {
